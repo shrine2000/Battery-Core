@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorLightPrimary</item>
+        <item name="colorPrimaryDark">@color/colorLightPrimaryDark</item>
+        <item name="colorAccent">@color/colorLightAccent</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:textColorPrimary">@color/highLightContrast</item>
+        <item name="android:textColorSecondary">@color/highLightContrast</item>
+
+         <item name="android:statusBarColor">@color/white</item>
+         <item name="android:itemBackground">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="LicenseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+
+    </style>
+
+    <style name="ToggleSwitchTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorAccent">#03DAC6</item>
+    </style>
+
+
+    <!-- https://stackoverflow.com/a/63790500/9846650-->
+    <style name="MyTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/AppTheme.ActionBarStyle</item>
+     </style>
+
+    <style name="AppTheme.ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:titleTextStyle">@style/AppTheme.ActionBar.TitleTextStyle</item>
+     </style>
+
+    <style name="AppTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
+    <style name="TextLarge" parent="@android:style/TextAppearance.Large">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/text_large</item>
+    </style>
+
+    <style name="TextMedium" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+    </style>
+
+    <dimen name="text_large">17sp</dimen>
+    <dimen name="text_medium">14sp</dimen>
+
+    <color name="primaryColor">#FFFFFF</color>
+</resources>

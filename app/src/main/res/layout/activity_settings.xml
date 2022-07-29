@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+
+    tools:context=".Settings">
+
+    <androidx.appcompat.widget.Toolbar
+        app:navigationIcon="?attr/homeAsUpIndicator"
+
+        android:id="@+id/toolbar_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:animateLayoutChanges="true">
+
+
+        <batterysaver.batterychargingapp.batterypercentage.batterywidget.view.CustomTextView
+            style="@style/TextLarge"
+            android:id="@+id/feedback"
+            android:onClick="onClick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp"
+            android:text="Feedback" />
+        </FrameLayout>
+
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:animateLayoutChanges="true">
+
+
+            <batterysaver.batterychargingapp.batterypercentage.batterywidget.view.CustomTextView
+                style="@style/TextLarge"
+                android:onClick="onClick"
+
+                android:id="@+id/bug"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:text="Report bug" />
+
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:animateLayoutChanges="true">
+
+
+            <batterysaver.batterychargingapp.batterypercentage.batterywidget.view.CustomTextView
+                style="@style/TextLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:onClick="onClick"
+                android:id="@+id/share"
+
+                android:text="Share" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:animateLayoutChanges="true">
+
+
+            <batterysaver.batterychargingapp.batterypercentage.batterywidget.view.CustomTextView
+                style="@style/TextLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:onClick="onClick"
+                android:id="@+id/privacy"
+
+                android:text="Privacy" />
+
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:animateLayoutChanges="true">
+
+
+            <batterysaver.batterychargingapp.batterypercentage.batterywidget.view.CustomTextView
+                style="@style/TextLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:onClick="onClick"
+
+                android:id="@+id/license"
+                android:text="Open source licenses" />
+
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:animateLayoutChanges="true">
+
+
+            <batterysaver.batterychargingapp.batterypercentage.batterywidget.view.CustomTextView
+                style="@style/TextLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:text="Version" />
+
+            <batterysaver.batterychargingapp.batterypercentage.batterywidget.view.CustomTextView
+                android:id="@+id/version_tv"
+                style="@style/TextMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_marginEnd="16dp"
+                android:padding="8dp"
+                android:text="0.01"
+
+                android:textAllCaps="false" />
+
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
