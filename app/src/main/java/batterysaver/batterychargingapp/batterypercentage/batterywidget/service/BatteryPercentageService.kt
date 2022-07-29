@@ -23,7 +23,6 @@ import batterysaver.batterychargingapp.batterypercentage.batterywidget.preferenc
 import batterysaver.batterychargingapp.batterypercentage.batterywidget.util.ImageUtils
 import kotlin.math.roundToInt
 
-@RequiresApi(Build.VERSION_CODES.O)
 class BatteryPercentageService : Service() {
 
 
@@ -116,18 +115,15 @@ class BatteryPercentageService : Service() {
 
 
     private fun createNotificationChannel(channelId: String, channelName: String): String? {
-        return if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            val chan = NotificationChannel(
-                channelId,
-                channelName, NotificationManager.IMPORTANCE_LOW
-            )
-            chan.lightColor = Color.BLUE
-            chan.lockscreenVisibility = Notification.VISIBILITY_PUBLIC
-            notificationManager.createNotificationChannel(chan)
-            channelId
-        } else {
-            null
-        }
+
+        val chan = NotificationChannel(
+            channelId,
+            channelName, NotificationManager.IMPORTANCE_LOW
+        )
+        chan.lightColor = Color.BLUE
+        chan.lockscreenVisibility = Notification.VISIBILITY_PUBLIC
+        notificationManager.createNotificationChannel(chan)
+        return  channelId
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
