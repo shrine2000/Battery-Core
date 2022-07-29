@@ -76,7 +76,7 @@ class Settings : AppCompatActivity() {
                     shareIntent.type = "text/plain"
                     shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Battery Core")
                     var shareMessage = "\n Download this great app to monitor battery health, with excellent UI & lot of details like battery temperature, voltage etc\n\n"
-                    shareMessage = "$shareMessage Google play store - https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}"
+                    shareMessage = "$shareMessage Google play store - https://play.google.com/store/apps/details?id=batterysaver.batterychargingapp.batterypercentage.batterywidget"
                     shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
                     startActivity(Intent.createChooser(shareIntent, "Choose one"))
                 } catch (e: java.lang.Exception) {

@@ -30,7 +30,6 @@ import batterysaver.batterychargingapp.batterypercentage.batterywidget.service.B
 import batterysaver.batterychargingapp.batterypercentage.batterywidget.utils.vibrateDevice
 import com.db.williamchart.view.LineChartView
 import com.github.pwittchen.rxbattery.library.RxBattery
-import com.google.firebase.analytics.FirebaseAnalytics
 import eo.view.batterymeter.BatteryMeterView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -77,7 +76,7 @@ class MainActivity : AppCompatActivity() {
     val currentArray = arrayListOf<Pair<String, Float>>()
     val tempCurrentArray = arrayListOf<Float>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -92,15 +91,12 @@ class MainActivity : AppCompatActivity() {
         setLineChartCharging()
         initNotification()
         AppRater.appLaunched(this)
-        FirebaseAnalytics.getInstance(this)
 
 
         // https://stackoverflow.com/a/51265574/9846650
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        }
+         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
 
-        setSupportActionBar(findViewById(R.id.toolbar))
+         setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar?.elevation = 4F
 
         timer = Timer()
@@ -188,17 +184,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "Battery Percentage"
-            val description = "Battery Percentage"
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel("default", name, importance)
-            channel.description = description
-            channel.setSound(null, null)
+        val name = "Battery Percentage"
+        val description = "Battery Percentage"
+        val importance = NotificationManager.IMPORTANCE_DEFAULT
+        val channel = NotificationChannel("default", name, importance)
+        channel.description = description
+        channel.setSound(null, null)
 
-            val notificationManager = getSystemService(NotificationManager::class.java)
-            notificationManager.createNotificationChannel(channel)
-        }
+        val notificationManager = getSystemService(NotificationManager::class.java)
+        notificationManager.createNotificationChannel(channel)
     }
 
     private fun setPowerTextView() {
@@ -289,23 +283,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun setLineChartDisCharging() {
-        fillCurrentArray()
-
-        if (::lineChartView.isInitialized) {
-            lineChartView.apply {
-                lineColor = Color.parseColor("#0383da")
-                gradientFillColors =
-                    intArrayOf(
-                        Color.parseColor("#0392f3"),
-                        Color.TRANSPARENT
-                    )
-                animation.duration = 0L
-                smooth = true
-                lineThickness = 3F
-            }
-        }
-    }
 
 
     private fun findCharging() {

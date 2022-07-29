@@ -1,4 +1,3 @@
-
 package batterysaver.batterychargingapp.batterypercentage.batterywidget.preference
 
 import android.app.Activity
@@ -42,28 +41,10 @@ object AppRater {
         if (launchCount >= LAUNCHES_UNTIL_PROMPT) {
             if (System.currentTimeMillis() >= dateFirstLaunch + DAYS_UNTIL_PROMPT * 24 * 60 * 60 * 1000) {
                 showRateDialog(context, editor)
-                // showPlayStoreReviewDialog(context, editor)
             }
         }
 
         editor.apply()
-    }
-
-    private fun showPlayStoreReviewDialog(context: Activity, editor: SharedPreferences.Editor) {
-        /*val manager = ReviewManagerFactory.create(context)
-        val flow = manager.requestReviewFlow()
-        flow.addOnCompleteListener { request ->
-            if (request.isSuccessful) {
-                val reviewInfo = request.result
-                val flowManager = manager.launchReviewFlow(context, reviewInfo)
-                flowManager.addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        editor.putBoolean(DO_NOT_SHOW_AGAIN, true)
-                        editor.commit()
-                    }
-                }
-            }
-        }*/
     }
 
     private fun showRateDialog(context: Context, editor: SharedPreferences.Editor) {
@@ -73,13 +54,13 @@ object AppRater {
             message(text = "If you enjoy using this app, please take a moment to rate it. Thanks for your support!")
             positiveButton(R.string.app_name) {
                 context.startActivity(
-                        Intent(
-                                Intent.ACTION_VIEW,
-                                Uri.parse("market://details?id=${context.packageName}")
-                        )
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("market://details?id=${context.packageName}")
+                    )
                 )
                 editor.apply {
-                    putBoolean(DO_NOT_SHOW_AGAIN,true)
+                    putBoolean(DO_NOT_SHOW_AGAIN, true)
                     commit()
                 }
             }
