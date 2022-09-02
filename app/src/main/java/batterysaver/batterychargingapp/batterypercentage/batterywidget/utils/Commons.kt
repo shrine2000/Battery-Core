@@ -20,20 +20,12 @@ private var toast: Toast? = null
 
 fun vibrateDevice(context: Context) {
     val vibrator = getSystemService(context, Vibrator::class.java)
-    vibrator?.let {
-        if (Build.VERSION.SDK_INT >= 26) {
-            it.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE))
-        } else {
-            @Suppress("DEPRECATION")
-            it.vibrate(50)
-        }
-    }
+    vibrator?.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE))
 }
 
 
 fun Context.toast(string: String) {
     toast?.cancel()
-
     toast = Toast.makeText(this, string, Toast.LENGTH_SHORT).apply {
         show()
     }
@@ -43,12 +35,8 @@ fun Activity.makeStatusBarTransparent() {
     window.apply {
         clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
         addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            decorView.systemUiVisibility =
-                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-        } else {
-            decorView.systemUiVisibility = SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-        }
+        decorView.systemUiVisibility =
+                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         statusBarColor = Color.TRANSPARENT
     }
 

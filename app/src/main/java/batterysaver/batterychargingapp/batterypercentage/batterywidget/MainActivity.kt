@@ -76,13 +76,11 @@ class MainActivity : AppCompatActivity() {
     val currentArray = arrayListOf<Pair<String, Float>>()
     val tempCurrentArray = arrayListOf<Float>()
 
-     override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         intentService = Intent(this@MainActivity, BatteryPercentageService::class.java)
-
-
         initLayout()
         AppPreferences.init(this)
         setBatteryView()
@@ -92,11 +90,9 @@ class MainActivity : AppCompatActivity() {
         initNotification()
         AppRater.appLaunched(this)
 
-
         // https://stackoverflow.com/a/51265574/9846650
-         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-
-         setSupportActionBar(findViewById(R.id.toolbar))
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar?.elevation = 4F
 
         timer = Timer()
@@ -283,8 +279,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
-
     private fun findCharging() {
         /* batteryStatsReceiver = object : BroadcastReceiver() {
              @SuppressLint("SetTextI18n")
@@ -384,7 +378,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-     override fun onResume() {
+    override fun onResume() {
         super.onResume()
         /*timer = Timer()
         if (::timer.isInitialized && ::batteryManager.isInitialized){

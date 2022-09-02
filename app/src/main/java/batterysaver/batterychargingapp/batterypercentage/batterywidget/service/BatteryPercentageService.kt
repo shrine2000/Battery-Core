@@ -1,30 +1,23 @@
 package batterysaver.batterychargingapp.batterypercentage.batterywidget.service
 
-import android.app.Notification
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.Service
+import android.app.*
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.Color
 import android.graphics.drawable.Icon
+import android.os.BatteryManager
 import android.os.IBinder
 import android.widget.RemoteViews
-import java.util.*
-import android.app.*
-import android.content.IntentFilter
-import android.os.BatteryManager
-import android.os.Build
-import androidx.annotation.RequiresApi
 import batterysaver.batterychargingapp.batterypercentage.batterywidget.MainActivity
-
 import batterysaver.batterychargingapp.batterypercentage.batterywidget.R
 import batterysaver.batterychargingapp.batterypercentage.batterywidget.preference.AppPreferences
 import batterysaver.batterychargingapp.batterypercentage.batterywidget.util.ImageUtils
+import java.util.*
 import kotlin.math.roundToInt
 
-class BatteryPercentageService : Service() {
 
+class BatteryPercentageService : Service() {
 
     private val notificationLayout by lazy {
         RemoteViews(
@@ -116,14 +109,14 @@ class BatteryPercentageService : Service() {
 
     private fun createNotificationChannel(channelId: String, channelName: String): String? {
 
-        val chan = NotificationChannel(
+        val notificationChannel = NotificationChannel(
             channelId,
             channelName, NotificationManager.IMPORTANCE_LOW
         )
-        chan.lightColor = Color.BLUE
-        chan.lockscreenVisibility = Notification.VISIBILITY_PUBLIC
-        notificationManager.createNotificationChannel(chan)
-        return  channelId
+        notificationChannel.lightColor = Color.BLUE
+        notificationChannel.lockscreenVisibility = Notification.VISIBILITY_PUBLIC
+        notificationManager.createNotificationChannel(notificationChannel)
+        return channelId
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -135,10 +128,17 @@ class BatteryPercentageService : Service() {
         val intent = Intent(this, MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 
+
+        // https://stackoverflow.com/a/71321997/9846650
+        val flag =
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         return PendingIntent.getActivity(
-            this, 0, intent,
-            PendingIntent.FLAG_UPDATE_CURRENT
+            this,
+            0,
+            intent,
+            flag
         )
+
     }
 
 

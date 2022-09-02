@@ -21,8 +21,6 @@ object AppPreferences {
         editor.apply()
     }
 
-
-
     var isBatteryPercentageNotiEnabled: Boolean
         get() = preferences.getBoolean(BATTERY_PERCENTAGE_NOTI.first, BATTERY_PERCENTAGE_NOTI.second)
         set(value) = preferences.edit {
