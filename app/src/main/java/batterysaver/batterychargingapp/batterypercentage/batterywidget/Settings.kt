@@ -28,9 +28,7 @@ class Settings : AppCompatActivity() {
             text = packageManager.getPackageInfo(packageName, 0).versionName
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        }
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         setSupportActionBar(findViewById(R.id.toolbar_settings))
         supportActionBar?.elevation = 4F
 
